@@ -349,9 +349,9 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
         if let url = url, url.scheme == "ytplayer" { handleJSEvent(url) }
         
         
-          if navigationType == .linkClicked || (!url.absoluteString.contains("about:blank") 
-                              && !url.absoluteString.contains("ytplayer://") 
-                              && !url.absoluteString.contains("youtube.com/embed")) {
+          if navigationType == .linkClicked || (!(url?.absoluteString.contains("about:blank"))!
+            && !(url?.absoluteString.contains("ytplayer://"))!
+            && !(url?.absoluteString.contains("youtube.com/embed"))!) {
              // open in web-browser app
             print("Not Sending")
             return false
